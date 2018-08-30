@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
     	format.json @result.to_json
     end
   rescue Exception => e
-  	# Error.new e.message
+    p '*'*100
+    p e.message
+    # p e.backtrace
+    p '*'*100
   ensure
   	@result
   end

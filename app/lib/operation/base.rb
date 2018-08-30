@@ -7,16 +7,13 @@ module Operation
 		end
 
 		def perform
-			with_validation do 
-				process!
-			end
+			validation
+			process!
 		end
 
 	  protected
-
-		def with_validation
-			p form, form.valid?, '='*100
-			form.valid? or Error.new :incorrect_validation
+		def validation
+			form && form.valid? or Error.new :incorrect_validation
 		end
 
 	  def form
