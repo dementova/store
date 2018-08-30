@@ -1,0 +1,16 @@
+default: &default
+  adapter: <%= Rails.application.secrets['adapter'] %>
+  encoding: utf8
+  reconnect: true
+  pool: 15
+  host: <%= Rails.application.secrets['host'] %>
+  port: <%= Rails.application.secrets['port'] %>
+  database: <%= Rails.application.secrets['database'] %>
+  username: <%= Rails.application.secrets['username'] %>
+  password: <%= Rails.application.secrets['password'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
