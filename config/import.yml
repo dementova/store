@@ -1,0 +1,6 @@
+timeout: 30
+products:
+  beers:
+    url: 'https://api.punkapi.com/v2/beers'
+  books:
+    url: 'http://openlibrary.org/people/george08/lists.json'

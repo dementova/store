@@ -5,7 +5,7 @@ module Operation
 			
 			def process!
 				response = Product.where(conditions).order(sort : sort_by).offset(offset).limit(LIMIT).to_a
-				Result.new(response)
+				Result.product_list(response)
 			end
 
 			private
@@ -26,6 +26,7 @@ module Operation
 			def offset
 				form[:offset] || 0
 			end
+			
 		end
 	end
 end

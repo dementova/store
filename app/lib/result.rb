@@ -1,7 +1,7 @@
 class Result
   attr_reader :error, :error_msg
 
-  def self.with_error(error, data = nil)
+  def self.with_error error, data = nil
     new.tap do |obj|
       obj.error     = true
       obj.error_msg = I18n.t("errors.#{error}")
@@ -9,7 +9,13 @@ class Result
     end
   end
 
-  def self.list items
+  def self.with_success data
+    new.tap do |obj|
+      obj.result = data
+    end
+  end
+
+  def self.product_list items
     new.tap do |obj|
       obj.items = items.map{|item| Decorator::Product.new(item) }
     end

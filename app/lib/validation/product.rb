@@ -7,5 +7,9 @@ module Validation
       attribute :sort_by,  type: String,  defaut: :asc
 	    attribute :offset,   type: Integer, defaut: :asc
 		end
+
+		class Show < Base
+	    attribute :id, 	 		 type: Integer
+		end
 	end
 end

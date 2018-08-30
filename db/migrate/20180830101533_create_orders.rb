@@ -26,7 +26,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.decimal     :discount,        null: false
       t.string      :currency,        null: false
       t.references  :products,        null: false, index: true
-      # t.references  :user,            null: false, index: true
+      t.references  :user,            null: false, index: true
       t.timestamps
     end
   end

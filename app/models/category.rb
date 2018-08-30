@@ -3,6 +3,7 @@ class Category < ActiveRecord::Base
 
   enum :product_type, [
     :food,
+    :book,
     :electronics
   ]
 end

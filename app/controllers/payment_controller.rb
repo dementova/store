@@ -1,7 +1,4 @@
 class PaymentController < ApplicationController
-  def list
-  end
-
-  def show
+  def new
   end
 end
