@@ -1,9 +1,11 @@
 module Operation
 	module Product
 		class List < Base
+			LIMIT = 10
+			
 			def process!
-byebug
-				Product.where(conditions).order(sort : sort_by).to_a
+				response = Product.where(conditions).order(sort : sort_by).offset(offset).limit(LIMIT).to_a
+				Result.new(response)
 			end
 
 			private
@@ -19,6 +21,10 @@ byebug
 
 			def sort_by
 				form[:sort_by]
+			end
+
+			def offset
+				form[:offset] || 0
 			end
 		end
 	end
