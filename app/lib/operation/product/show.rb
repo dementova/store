@@ -4,6 +4,7 @@ module Operation
 		
 			def process!
 				response = Product.find(form[:id])
+				
 				Result.product(response)
 			end
 

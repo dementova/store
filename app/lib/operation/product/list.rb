@@ -5,6 +5,7 @@ module Operation
 			
 			def process!
 				response = Product.where(conditions).order(sort : sort_by).offset(offset).limit(LIMIT).to_a
+				
 				Result.product_list(response)
 			end
 

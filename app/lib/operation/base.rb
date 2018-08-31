@@ -13,7 +13,7 @@ module Operation
 
 	  protected
 		def validation
-			form && form.valid? or Error.new :incorrect_validation
+			form && form.valid? or Error.new(:incorrect_validation)
 		end
 
 	  def form

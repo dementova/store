@@ -4,6 +4,7 @@ module Operation
 		
 			def process!
 				response = basket.products
+				
 				Result.product_list(response)
 			end
 

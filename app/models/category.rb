@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
   has_many :products
 
-  enum :product_type, [
+  enum :code, [
     :food,
     :book,
     :electronics

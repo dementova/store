@@ -1,0 +1,10 @@
+color: 'white'
+amount_products:
+  by_color: 10
+  by_food: 1
+discount_amount:
+  color: 1
+  group: 3
+  food: 5
+food: 
+  time_limit: 18

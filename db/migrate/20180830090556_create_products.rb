@@ -14,8 +14,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
 
     create_table :categories do |t|
       t.string      :name,          null: false
+      t.integer     :code,          null: false,  index: true,  limit: 1,   default: 0
       t.string      :description
-      t.integer     :product_type,  null: false,  index: true,  limit: 1,   default: 0
       t.references  :products,                    index: true
       t.timestamps
     end
