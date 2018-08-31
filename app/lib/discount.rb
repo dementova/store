@@ -8,11 +8,10 @@ class Discount
 		food: 	'DiscountFactory::Food'
 	}.freeze
 
-	def self.define params
+	def self.define products
 
-		discount = 0
-		TYPE.each do |type, klass|
-			discount += TYPE[:type].constantize.new(params).define
+		TYPE.sum do |type, klass|
+			TYPE[:type].constantize.new(products).define
 		end
 
 	end

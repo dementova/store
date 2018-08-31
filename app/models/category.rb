@@ -3,7 +3,9 @@ class Category < ActiveRecord::Base
 
   enum :code, [
     :food,
+    :drink,
     :book,
-    :electronics
+    :keyboard,
+    :mouse
   ]
 end

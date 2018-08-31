@@ -8,3 +8,7 @@ discount_amount:
   food: 5
 food: 
   time_limit: 18
+groups: [
+  [keyboard, mouse], 
+  [food, drink]
+]

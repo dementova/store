@@ -8,16 +8,18 @@ module DiscountFactory
 		end
 
 		def define
-			exist? ? Discount::CONFIG['discount_amount']['group'] : 0
+			Discount::CONFIG['groups'].sum do |group|
+				common = @categories & group
+				common.count == group.count ? Discount::CONFIG['discount_amount']['group'] : 0
+			end
 		end
 
 		private
 
-		def exist?
+		def categories
+			@categories ||= @products.map{ |p| p.category.code.to_s }
 		end
 
-		def amount_products
-		end
 
 	end
 end

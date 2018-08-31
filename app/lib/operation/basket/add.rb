@@ -5,6 +5,10 @@ module Operation
 			def process!
 				basket.product_ids << product_id
 				
+				basket.discount = Discount.define(basket.products)
+				basket.currence = CONFIG['currency']
+				basket.cost 		= cost
+
 				Result.with_success(basket)
 			end
 
@@ -19,6 +23,10 @@ module Operation
 
 			def basket
 				@basket ||= Basket.find_or_create_by(user_id: user_id)
+			end
+
+			def cost
+				basket.products.sum(&:price)
 			end
 
 		end

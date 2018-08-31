@@ -6,11 +6,8 @@ module Decorator
       @product = product
     end
 
-    def discount
-    end
-
     def amount
-      # product.cost - discount
+      product.cost - product.discount
     end
   end
 end
