@@ -11,7 +11,7 @@ class Discount
 	def self.define products
 
 		TYPE.sum do |type, klass|
-			TYPE[:type].constantize.new(products).define
+			TYPE[type].constantize.new(products).define
 		end
 
 	end

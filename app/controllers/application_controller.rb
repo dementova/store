@@ -3,16 +3,17 @@ class ApplicationController < ActionController::Base
 
   def safe_action
     yield
+    raise StandartError.new(@operation.error_msg) if @operation.error 
+
+    @result = @operation.result
     respond_to do |format|
-    	format.html
-    	format.json @result.to_json
+      format.html
+      format.json { render json: @result.to_json }
     end
   rescue Exception => e
     p '*'*100
-    p e.message
-    # p e.backtrace
+    puts e.message
+    puts e.backtrace
     p '*'*100
-  ensure
-  	@result
   end
 end

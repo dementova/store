@@ -3,9 +3,9 @@ module Operation
 		class Show < Base
 		
 			def process!
-				response = Product.find(form[:id])
+				response = ::Product.find(form[:id])
 				
-				Result.product(response)
+				Result.with_success(response)
 			end
 
 		end

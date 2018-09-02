@@ -14,8 +14,8 @@ module DiscountFactory
 		private
 
 		def exist?
-			return (Time.now.hour > Discount::CONFIG['food']['time_limit'] && Time.now.min > 0) or false
-
+			return false if Time.now.hour < Discount::CONFIG['food']['time_limit']
+			
 			amount_products >= Discount::CONFIG['amount_products']['by_food']
 		end
 

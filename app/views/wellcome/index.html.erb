@@ -1,0 +1,15 @@
+<section id='products'>
+	<div style='float: left; width: 45vw;'>
+		<h3><%= t(:catalog) %></h3>
+		<container :headers="headers1">
+			<product v-for = '(item, index) in items' :product = 'item' :index = 'index' @basket-add = 'add'></product>
+		</container>			
+	</div>
+	<div style='float: right; width: 45vw;'>
+		<h3 ><%= t(:basket) %></h3>
+		<container style='float: right; width: 45vw;' :headers="headers2">
+			<basket-item v-for = '(item, index) in baskets.products' :product = 'item' :index = 'index'></basket-item>
+		</container>
+		<price :price = 'totalPrice' ></price>
+	</div>
+</section>

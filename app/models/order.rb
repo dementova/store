@@ -1,8 +1,9 @@
 class Order < ActiveRecord::Base
-  has_many :products
+  has_many :order_products
+  has_many :products, through: :order_products
   has_many :payments_transactions
 
-  enum :status, [
+  enum status: [
     :created,
     :in_processing,
     :paid,

@@ -1,15 +1,15 @@
 module Validation
 	module Basket
-		class List < Base
-	    attribute :user_id,	 		type: Integer
-		end
+		# class List < Base
+	 #    attribute :user_id,	 		type: Integer
+		# end
 
-		class Add < Base
+		class AddProduct < Base
 	    attribute :user_id,			type: Integer
 	    attribute :product_id,	type: Integer
 		end
 
-		class Destroy < Base
+		class DestroyProduct < Base
 	    attribute :user_id,			type: Integer
 	    attribute :product_id,	type: Integer
 		end

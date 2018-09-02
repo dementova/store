@@ -1,18 +1,20 @@
 module Operation
 	module Product
 		class List < Base
-			LIMIT = 10
+			LIMIT = CONFIG['per_page']
 			
 			def process!
-				response = Product.where(conditions).order(sort : sort_by).offset(offset).limit(LIMIT).to_a
-				
-				Result.product_list(response)
+				response = ::Product.includes(:category).where(conditions).order(sort => sort_by).offset(offset).limit(LIMIT).to_a
+
+				Result::Base::Success.new(
+					result: response.map(&:to_struct)
+				)
 			end
 
 			private
 			def conditions
 				{}.tap do
-					# conditions[:type] = form[:type]
+					# conditions[:category_id] = form[:caregory_id]
 				end
 			end
 
@@ -25,7 +27,7 @@ module Operation
 			end
 
 			def offset
-				form[:offset] || 0
+				form[:offset]
 			end
 			
 		end

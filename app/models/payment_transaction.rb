@@ -1,7 +1,7 @@
 class PaymentTransaction < ActiveRecord::Base
   belongs_to :order
 
-  enum :status, [
+  enum status: [
     :success,
     :failed
   ]
